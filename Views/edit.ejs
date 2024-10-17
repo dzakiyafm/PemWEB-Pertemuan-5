@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PemWEB Pertemuan 5</title>
+
+    <style>
+        body{
+            background-color: #a6afe2;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <h2>Edit Pengguna</h2>
+    <form class="form" action="/update/<%= users.id %>" method="post" onsubmit="alert('Data berhasil diedit')">
+        <label for="name">Nama:</label>
+        <input type="text" id="name" name="name" required value="<%= users.name%>"><br>
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" value="<%= users.email%>"><br>
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" name="phone" value="<%= users.phone%>"><br>
+        <button type="submit">Simpan</button>
+    </form>
+    </center>
+</body>
+</html>

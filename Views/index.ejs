@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PemWEB Pertemuan 5</title>
+    <style>
+        body{
+            background-color: #a6afe2;
+        }
+
+        h1{
+            text-align: center;
+        }
+        .tabel{
+            color: #1F2544;
+            border-collapse: collapse;
+            width: 70%;
+            border: 1px solid #1F2544;
+        }
+
+        .tabel tr th {
+            background: #a6afe2;
+            color: #1F2544;
+
+        }
+
+        .tabel, th, td{
+            padding: 8px 20px;
+            text-align: center;
+        }
+
+        .tabel tr:nth-child(even){
+            background: #e0dce6;
+        }
+
+    </style>
+</head>
+<body>
+    <center>
+    <h1>Daftar Pengguna Spotify</h1>
+    <table border="1" class="tabel">
+        <tr>
+            <th>ID</th>
+            <th>NAMA</th>
+            <th>EMAIL</th>
+            <th>PHONE</th>
+            <th>AKSI</th>
+        </tr>
+        <% users.forEach(memb => {%>
+        <tr>
+            <td><%= memb.id %></td>
+            <td><%= memb.name%></td>
+            <td><%= memb.email %></td>
+            <td><%= memb.phone %></td>
+            <td>
+                <a href="/edit/<%= memb.id %>">Edit</a> |
+                <a href="/delete/<%= memb.id %>">Hapus</a> 
+            </td>
+        </tr>
+        <% }) %>
+    </table>
+
+    <h2>Tambah Pengguna Baru</h2>
+    <form action="/add" method="post" onsubmit="alert('Data berhasil ditambahkan')">
+        <label for="name">Nama:</label>
+        <input type="text" id="name" name="name" required><br>
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email"><br>
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" name="phone"><br>
+        <button type="submit">Tambah</button>
+    </form>
+</center>
+</body>
+</html>
